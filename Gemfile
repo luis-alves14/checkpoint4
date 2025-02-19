@@ -69,3 +69,9 @@ end
 gem "cssbundling-rails", "~> 1.4"
 
 gem "rspec-rails", "~> 7.1", :groups => [:development, :test]
+
+gem "sassc-rails"
+
+gem "sassc", "~> 2.4"
+
+gem "bootstrap"
