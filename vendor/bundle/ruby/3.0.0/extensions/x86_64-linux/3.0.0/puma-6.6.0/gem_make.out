@@ -1,0 +1,61 @@
+current directory: /home/sti/checkpoint3/vendor/bundle/ruby/3.0.0/gems/puma-6.6.0/ext/puma_http11
+/home/sti/.rvm/rubies/ruby-3.0.2/bin/ruby -I /home/sti/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0 -r ./siteconf20250213-71670-i92n2e.rb extconf.rb
+checking for BIO_read() in -llibcrypto... no
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+
+──── Below are yes for 1.0.2 & later ────
+checking for DTLS_method() in openssl/ssl.h... no
+checking for SSL_CTX_set_session_cache_mode(NULL, 0) in openssl/ssl.h... yes
+
+──── Below are yes for 1.1.0 & later ────
+checking for TLS_server_method() in openssl/ssl.h... no
+checking for SSL_CTX_set_min_proto_version(NULL, 0) in openssl/ssl.h... no
+
+──── Below is yes for 1.1.0 and later, but isn't documented until 3.0.0 ────
+checking for SSL_CTX_set_dh_auto(NULL, 0) in openssl/ssl.h... no
+
+──── Below is yes for 1.1.1 & later ────
+checking for SSL_CTX_set_ciphersuites(NULL, "") in openssl/ssl.h... no
+
+──── Below is yes for 3.0.0 & later ────
+checking for SSL_get1_peer_certificate() in openssl/ssl.h... no
+
+checking for Random.bytes... yes
+creating Makefile
+
+current directory: /home/sti/checkpoint3/vendor/bundle/ruby/3.0.0/gems/puma-6.6.0/ext/puma_http11
+make DESTDIR\= clean
+
+current directory: /home/sti/checkpoint3/vendor/bundle/ruby/3.0.0/gems/puma-6.6.0/ext/puma_http11
+make DESTDIR\=
+compiling http11_parser.c
+compiling mini_ssl.c
+mini_ssl.c: In function ‘sslctx_initialize’:
+mini_ssl.c:338:14: warning: implicit declaration of function ‘SSL_CTX_clear_chain_certs’; did you mean ‘SSL_CTX_clear_extra_chain_certs’? [-Wimplicit-function-declaration]
+  338 |     if (0 == SSL_CTX_clear_chain_certs(ctx)) {
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |              SSL_CTX_clear_extra_chain_certs
+mini_ssl.c:350:16: warning: implicit declaration of function ‘SSL_CTX_add0_chain_cert’; did you mean ‘SSL_CTX_add_extra_chain_cert’? [-Wimplicit-function-declaration]
+  350 |       if (0 == SSL_CTX_add0_chain_cert(ctx, ca)) {
+      |                ^~~~~~~~~~~~~~~~~~~~~~~
+      |                SSL_CTX_add_extra_chain_cert
+mini_ssl.c:386:32: warning: implicit declaration of function ‘SSL_CTX_get0_param’; did you mean ‘SSL_CTX_set1_param’? [-Wimplicit-function-declaration]
+  386 |     X509_VERIFY_PARAM *param = SSL_CTX_get0_param(ctx);
+      |                                ^~~~~~~~~~~~~~~~~~
+      |                                SSL_CTX_set1_param
+mini_ssl.c:386:32: warning: initialization of ‘X509_VERIFY_PARAM *’ {aka ‘struct X509_VERIFY_PARAM_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+mini_ssl.c:232:56: warning: variable ‘ssl_ciphersuites’ set but not used [-Wunused-but-set-variable]
+  232 |   VALUE key, cert, ca, verify_mode, ssl_cipher_filter, ssl_ciphersuites, no_tlsv1, no_tlsv1_1,
+      |                                                        ^~~~~~~~~~~~~~~~
+At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: /home/sti/checkpoint3/vendor/bundle/ruby/3.0.0/gems/puma-6.6.0/ext/puma_http11
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20250213-71670-ekj9m4/puma
